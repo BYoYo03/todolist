@@ -1,0 +1,167 @@
+/* --- CSS Variables --- */
+/* Defined in :root for easy theme management and maintenance */
+:root {
+    --primary-color: #4a90e2;
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --white: #ffffff;
+}
+
+/* --- Global Reset & Base Styles --- */
+* {
+    /* Ensures padding and border are included in the element's total width/height */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    /* Flexbox used to center the card on the screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Main Container --- */
+.todo-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    width: 100%;
+    max-width: 500px; /* Prevents the card from getting too wide on desktop */
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* --- Input & Add Button --- */
+.input-group {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+}
+
+#todo-input {
+    flex-grow: 1; /* Input takes up all available remaining space */
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#todo-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+#add-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+#add-btn:hover {
+    background-color: #357abd;
+}
+
+/* --- Feedback & Messages --- */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    height: 1.2rem; /* Reserved height prevents layout shift when error appears */
+    margin-top: 5px;
+}
+
+/* --- Filter Buttons --- */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- Task List Items --- */
+.todo-list {
+    list-style: none; /* Removes default bullet points */
+    margin-top: 1rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    animation: fadeIn 0.3s ease; /* Entry animation */
+}
+
+.todo-item span {
+    flex-grow: 1;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 400px) {
+    .input-group {
+        flex-direction: column; /* Stacks input and button vertically on small screens */
+    }
+    #add-btn {
+        width: 100%;
+    }
+}
