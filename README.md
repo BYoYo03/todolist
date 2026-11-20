@@ -2,8 +2,6 @@
 
 A lightweight to-do list web app built with **vanilla HTML, CSS and JavaScript** — no framework, no build step, no dependencies. Tasks are saved in the browser, so they are still there when you reload the page.
 
-![To-Do List app screenshot](docs/screenshot.png)
-
 ## Features
 
 - **Add tasks** with the *Add* button or the <kbd>Enter</kbd> key
